@@ -1,19 +1,27 @@
 import { useState } from "react";
 import { ID } from "appwrite";
-import { DATABASE_ID, PRODUCTS_ID, database,} from "../Appwrite";
+import { DATABASE_ID, PRODUCTS_ID, database } from "../Appwrite";
 import { toast } from "react-toastify";
 
 export default function AddProducts() {
   const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [link, setLink] = useState("");
   const [hasError, setHasError] = useState(false);
   const [products, setProducts] = useState([]);
 
-  function handleTitleChange(event) {
-    setTitle(event.target.value);
-    setHasError(event.target.value.trim().length === 0);
+  function handleChange(setState) {
+    return (event) => {
+      setState(event.target.value);
+      setHasError(event.target.value.trim().length === 0);
+    };
   }
   const productsCard = {
     title,
+    description,
+    price:parseInt(price,10),
+    link,
   };
   async function productsAdd(productsCard) {
     try {
@@ -30,7 +38,7 @@ export default function AddProducts() {
       console.error(error);
     }
   }
-  
+
   return (
     <div>
       <h2>Responsive Form</h2>
@@ -50,69 +58,74 @@ export default function AddProducts() {
               <input
                 value={title}
                 style={{ border: hasError ? "1px solid red" : null }}
-                onChange={handleTitleChange}
+                onChange={handleChange(setTitle)}
                 type="text"
                 id="title"
                 placeholder="Название для этой свечи.."
               />
             </div>
           </div>
+
           <div className="row">
-            <button
-              className="button-active--color "
-              type="submit"
-              onClick={() => productsAdd(productsCard)}
-            >
-              Сохранить
-            </button>
-          </div>
-          {/* <div className="row">
             <div className="col-25">
               <label htmlFor="link">Ссылка</label>
             </div>
             <div className="col-75">
               <input
+                value={link}
+                style={{ border: hasError ? "1px solid red" : null }}
+                onChange={handleChange(setLink)}
                 type="text"
                 id="link"
-                name="lastname"
                 placeholder="Ссылка на покупку в онлайн-магазине.."
               />
             </div>
           </div>
           <div className="row">
             <div className="col-25">
-              <label htmlFor="country">Цена</label>
+              <label htmlFor="price">Цена</label>
             </div>
             <div className="col-75">
               <input
+                value={price}
+                style={{ border: hasError ? "1px solid red" : null }}
+                onChange={handleChange(setPrice)}
                 type="text"
-                id="link"
-                name="lastname"
+                id="price"
                 placeholder="Укажите цену.."
               />
             </div>
           </div>
           <div className="row">
             <div className="col-25">
-              <label htmlFor="subject">Описание</label>
+              <label htmlFor="description">Описание</label>
             </div>
             <div className="col-75">
               <textarea
-                id="subject"
-                name="subject"
+                value={description}
+                style={{ border: hasError ? "1px solid red" : null }}
+                onChange={handleChange(setDescription)}
+                id="description"
                 placeholder="Напишите что-нибудь.."
-               
               ></textarea>
             </div>
           </div>
-          <div className="row">
+          {/* <div className="row">
             <div className="col-25">
               <label htmlFor="files">Изображение</label>
             </div>
             <div className="col-75">
-            <input type="file" id="files" name="files" multiple></input>
+              <input type="file" id="files" name="files" multiple></input>
             </div>
           </div> */}
+          <div className="row">
+            <button
+              className="button-active--color "
+              type="button"
+              onClick={() => productsAdd(productsCard)}>
+              Сохранить
+            </button>
+          </div>
         </form>
       </div>
     </div>
