@@ -1,0 +1,97 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem 0 2rem;
+  text-align: center;
+  color: #363335;
+}
+
+.button-active--color {
+  background-color: #ed5d38;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header img {
+  width: 100px;
+  height: auto;
+}
+.header nav {
+  display: flex;
+  align-items: center;
+  width: 40%;
+  justify-content: space-around;
+}
+
+.about {
+  width: 100%;
+  padding-bottom: 100px;
+}
+.about .bg-image {
+  height: 0px;
+  width: 0px;
+}
+.about .bg-image img {
+  height: 700px;
+  width: 900px;
+  background-color: #ed5d38;
+}
+.about figure {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.about figcaption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  background-color: #f3eade;
+  height: 523px;
+  width: 413px;
+  margin-top: 70px;
+  box-shadow: -1em 0 0.4em rgba(147, 145, 143, 0.3803921569);
+}
+.about figcaption img {
+  width: 85%;
+  height: auto;
+}
+
+.products {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 100px;
+}
+.products .products-img {
+  background-color: #faf0e7;
+  width: 300px;
+  height: 370px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.products img {
+  max-height: 100%;
+  width: 100%;
+}
+.products figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.products section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}/*# sourceMappingURL=App.css.map */
