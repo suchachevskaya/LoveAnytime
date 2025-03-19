@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { ID } from "appwrite";
-import { DATABASE_ID, PRODUCTS_ID, database } from "../Appwrite";
+import {
+  DATABASE_ID,
+  PRODUCTS_ID,
+  BUCKET_ID,
+  database,
+  storage,
+} from "../Appwrite";
 import { toast } from "react-toastify";
 
 export default function AddProducts() {
@@ -8,6 +14,7 @@ export default function AddProducts() {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [link, setLink] = useState("");
+  const [file, setFile] = useState(null);
   const [hasError, setHasError] = useState(false);
   const [products, setProducts] = useState([]);
 
@@ -17,19 +24,43 @@ export default function AddProducts() {
       setHasError(event.target.value.trim().length === 0);
     };
   }
-  const productsCard = {
-    title,
-    description,
-    price:parseInt(price,10),
-    link,
-  };
-  async function productsAdd(productsCard) {
+  function handleFileChange(event) {
+    setFile(event.target.files);
+    setHasError(event.target.files.length === 0);
+  }
+  
+  async function imgAdd() {
     try {
+      const response = await storage.createFile(
+        BUCKET_ID,
+        ID.unique(),
+        file[0]
+      );
+
+      console.log("Файл успешно загружен:", response);
+      toast("Файл успешно загружен");
+      return response.$id;
+    } catch (error) {
+      console.error("Ошибка загрузки файла:", error);
+      toast.error("Ошибка загрузки файла");
+      throw error;
+    }
+  }
+  async function productsAdd() {
+    try {
+      const fileId = await imgAdd();
+      const productsCard = {
+        title,
+        description,
+        price: parseInt(price, 10),
+        link,
+        fileId,
+      };
       const response = await database.createDocument(
         DATABASE_ID,
         PRODUCTS_ID,
         ID.unique(),
-        productsCard
+        productsCard,
       );
       toast("Карточка создана");
       setProducts((prevProducts) => [response, ...prevProducts]);
@@ -110,19 +141,26 @@ export default function AddProducts() {
               ></textarea>
             </div>
           </div>
-          {/* <div className="row">
+          <div className="row">
             <div className="col-25">
-              <label htmlFor="files">Изображение</label>
+              <label htmlFor="file">Изображение</label>
             </div>
             <div className="col-75">
-              <input type="file" id="files" name="files" multiple></input>
+              <input
+                style={{ border: hasError ? "1px solid red" : null }}
+                onChange={handleFileChange}
+                type="file"
+                id="file"
+                multiple
+              ></input>
             </div>
-          </div> */}
+          </div>
           <div className="row">
             <button
               className="button-active--color "
               type="button"
-              onClick={() => productsAdd(productsCard)}>
+              onClick={() => productsAdd()}
+            >
               Сохранить
             </button>
           </div>
