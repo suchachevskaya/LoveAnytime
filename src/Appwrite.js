@@ -29,15 +29,7 @@ export const users = async () => {
     return [];
   }
 };
-// export const imagesDB = async () => {
-//   try {
-//     const result = await storage.getFileDownload(BUCKET_ID, fileId);
-//     return result;
-//   } catch (error) {
-//     console.error("Ошибка получения данных", error);
-//     return [];
-//   }
-// };
+
 
 
 

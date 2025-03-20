@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { items } from "../Appwrite";
+import { items, BUCKET_ID, PROJECT_ID } from "../Appwrite";
 export default function SectionProduct() {
   const [products, setProducts] = useState([]);
 
@@ -18,13 +18,12 @@ export default function SectionProduct() {
       </hgroup>
       <section>
         {products.map((product) => (
-          <Products {...product} key={product.$id}/>
+          <Products
+            {...product}
+            key={product.$id}
+            img={`https://cloud.appwrite.io/v1/storage/buckets/${BUCKET_ID}/files/${product.fileId}/view?project=${PROJECT_ID}&mode=admin`}
+          />
         ))}
-        <figure>
-          <div className="products-img">
-            <img src="src/img/more.png" alt="" />
-          </div>
-        </figure>
       </section>
     </div>
   );
@@ -33,8 +32,12 @@ function Products(props) {
   return (
     <figure>
       <div className="products-img">
-        <img src={props.image} alt="" />
-      </div>
+            {props.img ? (
+              <img src={props.img} alt={props.title} />
+            ) : (
+              <p>Изображение отсуствует</p>
+            )}
+          </div>
       <figcaption>
         <h6>{props.title}</h6>
         <p>{props.description}</p>
