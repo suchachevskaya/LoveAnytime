@@ -4,6 +4,8 @@
   padding: 0 2rem 0 2rem;
   text-align: center;
   color: #363335;
+  background-image: url(src/img/bg-transparent1.png);
+  background-repeat: repeat;
 }
 
 .button-active--color {
@@ -14,6 +16,7 @@
   border-radius: 4px;
   cursor: pointer;
   float: right;
+  margin: 5px;
 }
 
 .header {
@@ -28,13 +31,19 @@
 .header nav {
   display: flex;
   align-items: center;
-  width: 40%;
+  width: 50%;
   justify-content: space-around;
 }
 
 .about {
   width: 100%;
   padding-bottom: 100px;
+  min-height: 900px;
+}
+.about h6 {
+  text-align: justify;
+  -moz-text-align-last: center;
+       text-align-last: center;
 }
 .about .bg-image {
   height: 0px;
@@ -56,7 +65,7 @@
   align-items: center;
   justify-content: center;
   padding: 15px;
-  background-color: #f3eade;
+  background-color: #faf0e7;
   height: 523px;
   width: 413px;
   margin-top: 70px;
@@ -70,19 +79,20 @@
 .products {
   width: 100%;
   height: 100%;
-  padding-bottom: 100px;
+  padding: 100px 0 100px 0;
 }
 .products .products-img {
-  background-color: #faf0e7;
+  background-color: rgba(250, 240, 231, 0.8);
   width: 300px;
   height: 370px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: 5px 5px 0 0;
 }
 .products img {
-  max-height: 100%;
+  height: 100%;
   width: 100%;
 }
 .products figure {
@@ -90,8 +100,153 @@
   flex-direction: column;
   align-items: center;
 }
+.products figcaption {
+  background-color: #272125;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0 0 5px 5px;
+}
 .products section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  color: #faf0e7;
+}
+
+.invitationSection {
+  background-image: url(src/img/candle-vector.jpg);
+  background-repeat: repeat;
+  height: 400px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-blend-mode: overlay;
+  background-color: #faf0e7;
+  background-blend-mode: overlay;
+}
+
+.contactForm {
+  width: 100%;
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  color: #faf0e7;
+  background-color: #272125;
+  align-items: baseline;
+}
+.contactForm a {
+  color: #faf0e7;
+}
+.contactForm section a:hover {
+  color: #ed5d38;
+}
+.contactForm section .telContact::before {
+  content: url(src/img/iconTel.png);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.contactForm section .telContact:hover::before {
+  content: url(src/img/iconTelFill.png);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.contactForm section .mailContact::before {
+  content: url(src/img/iconMail.png);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.contactForm section .mailContact:hover::before {
+  content: url(src/img/iconMailFill.png);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.contactForm section .instContact::before {
+  content: url(src/img/iconInst.png);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.contactForm section .instContact:hover::before {
+  content: url(src/img/iconInstFill.png);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.contactForm section .ttContact::before {
+  content: url(src/img/iconTT.png);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.contactForm section .ttContact:hover::before {
+  content: url(src/img/iconTTFill.png);
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.contactForm .containerContactForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 50%;
+}
+.contactForm .inplabWrapper {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.onlineStoreSection {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: baseline;
+  justify-content: center;
+  background-blend-mode: overlay;
+  background-color: rgba(250, 240, 231, 0.8);
+  background-blend-mode: overlay;
+}
+.onlineStoreSection h3 {
+  padding: 50px;
+  text-align: end;
+}
+.onlineStoreSection .onlineStoreDescription {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 70%;
+  height: 300px;
+  justify-content: space-evenly;
+  align-items: baseline;
+  margin: 50px 50px 50px 100px;
+  text-align: justify;
+}
+
+.bottom {
+  background-color: rgba(250, 240, 231, 0.8);
+  display: flex;
+  height: 200px;
+  flex-direction: column;
+}
+.bottom img {
+  width: 100px;
+  height: auto;
+}
+.bottom figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.bottom nav {
+  display: flex;
+  align-items: center;
+  width: 40%;
+  justify-content: space-around;
+}
+.bottom hgroup {
+  display: flex;
+  justify-content: space-evenly;
 }/*# sourceMappingURL=App.css.map */

@@ -13,10 +13,10 @@ export default function SectionProduct() {
   return (
     <div className="products">
       <hgroup>
-        <p>Тепло, Аромат и Свет в Каждой Детали</p>
+        <h6>Тепло, Аромат и Свет в Каждой Детали</h6>
         <h2>Свечи Вашей Мечты</h2>
       </hgroup>
-      <section>
+      <section id="products">
         {products.map((product) => (
           <Products
             {...product}
@@ -39,11 +39,11 @@ function Products(props) {
             )}
           </div>
       <figcaption>
-        <h6>{props.title}</h6>
+        <h5>{props.title}</h5>
         <p>{props.description}</p>
-        <p>{props.price}</p>
+        <p>Цена: {props.price} BYN</p>
         <a className="button-active--color" href={props.link}>
-          Купить
+          Купить сейчас
         </a>
       </figcaption>
     </figure>

@@ -4,6 +4,8 @@
   padding: 0 2rem 0 2rem;
   text-align: center;
   color: #363335;
+  background-image: url(src/img/bg-transparent1.png);
+  background-repeat: repeat;
 }
 
 .button-active--color {
@@ -14,6 +16,7 @@
   border-radius: 4px;
   cursor: pointer;
   float: right;
+  margin: 5px;
 }
 
 .header {
@@ -27,13 +30,18 @@
   nav {
     display: flex;
     align-items: center;
-    width: 40%;
+    width: 50%;
     justify-content: space-around;
   }
 }
 .about {
   width: 100%;
   padding-bottom: 100px;
+  min-height: 900px;
+  h6 {
+    text-align: justify;
+    text-align-last: center;
+  }
   .bg-image {
     height: 0px;
     width: 0px;
@@ -54,33 +62,33 @@
     align-items: center;
     justify-content: center;
     padding: 15px;
-    background-color: #f3eade;
+    background-color: #faf0e7;
     height: 523px;
     width: 413px;
     margin-top: 70px;
     box-shadow: -1em 0 0.4em #93918f61;
-  img {
+    img {
       width: 85%;
       height: auto;
-    
     }
   }
 }
 .products {
   width: 100%;
   height: 100%;
-  padding-bottom: 100px;
+  padding: 100px 0 100px 0;
   .products-img {
-    background-color: #faf0e7;
+    background-color: rgba(250, 240, 231, 0.8);
     width: 300px;
     height: 370px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-radius: 5px 5px 0 0;
   }
   img {
-    max-height: 100%;
+    height: 100%;
     width: 100%;
   }
   figure {
@@ -88,10 +96,160 @@
     flex-direction: column;
     align-items: center;
   }
+  figcaption {
+    background-color: #272125;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0 0 5px 5px;
+  }
 
   section {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    color: #faf0e7;
+  }
+}
+.invitationSection {
+  background-image: url(src/img/candle-vector.jpg);
+  background-repeat: repeat;
+  height: 400px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-blend-mode: overlay;
+  background-color: #faf0e7;
+  background-blend-mode: overlay;
+  // mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+  // -webkit-mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%);
+}
+.contactForm {
+  width: 100%;
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  color: #faf0e7;
+  background-color: #272125;
+  align-items: baseline;
+  a {
+    color: #faf0e7;
+  }
+  section {
+    a:hover {
+      color: #ed5d38;
+    }
+
+    .telContact::before {
+      content: url(src/img/iconTel.png);
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .telContact:hover::before {
+      content: url(src/img/iconTelFill.png);
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .mailContact::before {
+      content: url(src/img/iconMail.png);
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .mailContact:hover::before {
+      content: url(src/img/iconMailFill.png);
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .instContact::before {
+      content: url(src/img/iconInst.png);
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .instContact:hover::before {
+      content: url(src/img/iconInstFill.png);
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .ttContact::before {
+      content: url(src/img/iconTT.png);
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .ttContact:hover::before {
+      content: url(src/img/iconTTFill.png);
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+  }
+
+  .containerContactForm {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 50%;
+  }
+  .inplabWrapper {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+.onlineStoreSection {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: baseline;
+  justify-content: center;
+  background-blend-mode: overlay;
+  background-color: rgba(250, 240, 231, 0.8);
+  background-blend-mode: overlay;
+
+  h3 {
+    padding: 50px;
+    text-align: end;
+  }
+  .onlineStoreDescription {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 70%;
+    height: 300px;
+    justify-content: space-evenly;
+
+    align-items: baseline;
+    margin: 50px 50px 50px 100px;
+    text-align: justify;
+  }
+}
+.bottom {
+  background-color: rgba(250, 240, 231, 0.8);
+  display: flex;
+  height: 200px;
+  flex-direction: column;
+  img {
+    width: 100px;
+    height: auto;
+    
+  }
+  figcaption {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    justify-content: space-around;
+  }
+  hgroup{
+    display: flex;
+    justify-content: space-evenly;
   }
 }
