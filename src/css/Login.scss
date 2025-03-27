@@ -18,10 +18,9 @@ h2 {
   margin-left: 12px;
 }
 .loginForm {
-  color: #faf0e7;
   margin: 50px auto;
   width: 38%;
-  min-height: 640px;
+  height: auto;
   background: #272125;
   display: flex;
   flex-direction: column;
@@ -31,7 +30,7 @@ h2 {
 
 .form {
   display: flex;
-
+  align-items: center;
 }
 
 .input {

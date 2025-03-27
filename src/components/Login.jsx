@@ -1,25 +1,11 @@
 import { useState } from "react";
-import Button from "../components/Button";
-import { account, AUTH_ID, TARGET_ID } from "../Appwrite";
+import Button from "./Button";
 import "../css/Login.css";
 
-export default function Login({ active, onChange }) {
+export default function Login() {
   const [hasError, setHasError] = useState("");
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-
-  async function checkLogin() {
-    try {
-      const response = await account.createEmailPasswordSession(
-        userName,
-        password
-      );
-      console.log("User session created:", response);
-    } catch (error) {
-      console.error("Error during login:", error);
-  
-    }
-  }
 
   function handleChange(setState) {
     return (event) => {
@@ -47,7 +33,6 @@ export default function Login({ active, onChange }) {
             style={{ border: hasError ? "1px solid red" : null }}
             onChange={handleChange(setUserName)}
           />
-
           <span className="inputPassIcon">
             <i className="fa fa-key"></i>
           </span>
@@ -60,20 +45,13 @@ export default function Login({ active, onChange }) {
             onChange={handleChange(setPassword)}
           />
         </div>
-        <Button
-          className="submit"
-          isActive={active === "auth"}
-          onClick={() => {
-              checkLogin();
-              onChange("auth");
-          }}
-        >
+
+        <button className="submit">
           <span className="entypo-lock">
             <i className="fa fa-lock"></i>
           </span>
-        </Button>
+        </button>
       </form>
-      <pre>Name:{userName}</pre>
     </div>
   );
 }

@@ -13,10 +13,10 @@ export default function SectionProduct() {
   return (
     <div className="products">
       <hgroup>
-        <h6 >Тепло, Аромат и Свет в Каждой Детали</h6>
+        <h6>Тепло, Аромат и Свет в Каждой Детали</h6>
         <h2>Свечи Вашей Мечты</h2>
       </hgroup>
-      <section >
+      <section id="products">
         {products.map((product) => (
           <Products
             {...product}
