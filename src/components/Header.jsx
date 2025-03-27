@@ -13,7 +13,7 @@ export default function Header({ active, onChange }) {
         <Button style={{ backgroundColor: 'transparent',color: '#363335', fontSize: '16px', padding:'0px', margin:'0px'}}  isActive={active === "main"} onClick={() => onChange("main")}>
         <a >Главная</a>
         </Button>
-        <Button style={{ backgroundColor: 'transparent',color: '#363335', fontSize: '16px', padding:'0px',margin:'0px'}} isActive={active === "auth"} onClick={() => onChange("auth")}>
+        <Button style={{ backgroundColor: 'transparent',color: '#363335', fontSize: '16px', padding:'0px',margin:'0px'}} isActive={active === "login"} onClick={() => onChange("login")}>
           <a >Правообладателям</a>
           
         </Button>

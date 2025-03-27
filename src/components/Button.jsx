@@ -4,7 +4,7 @@ export default function Button({ children, isActive, ...props }) {
     <button
       {...props}
       className={
-        isActive ? `${classes.active }` : `${classes.inActive}`
+        !isActive ? `${classes.inActive}`:`${classes.active }`
       }
     >
       {children}

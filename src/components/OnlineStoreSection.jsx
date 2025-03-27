@@ -1,8 +1,8 @@
 import Button from "./Button";
 export default function OnlineStoreSection() {
   return (
-    <div className="onlineStoreSection">
-      <h3 id="request">Ваше новое вдохновение ждет в нашем магазине</h3>
+    <div id="request" className="onlineStoreSection">
+      <h3 >Ваше новое вдохновение ждет в нашем магазине</h3>
     <div className="onlineStoreDescription">
     <h6>
         Теперь наши товары ещё ближе! Исследуйте нашу коллекцию на eMall и

@@ -2,6 +2,12 @@
   box-sizing: border-box;
 }
 
+.addProduct {
+  min-height: 640px;
+  background: #272125;
+  color: #faf0e7;
+}
+
 input[type=text], select, textarea {
   width: 100%;
   padding: 12px;
@@ -31,7 +37,7 @@ input[type=submit]:hover {
 
 .container {
   border-radius: 5px;
-  background-color: rgba(250, 240, 231, 0.8);
+  background-color: #272125;
   padding: 20px;
 }
 
