@@ -8,18 +8,18 @@ export default function Login({ active, onChange }) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
-  async function checkLogin() {
-    try {
-      const response = await account.createEmailPasswordSession(
-        userName,
-        password
-      );
-      console.log("User session created:", response);
-    } catch (error) {
-      console.error("Error during login:", error);
+  // async function checkLogin() {
+  //   try {
+  //     const response = await account.createEmailPasswordSession(
+  //       userName,
+  //       password
+  //     );
+  //     console.log("User session created:", response);
+  //   } catch (error) {
+  //     console.error("Error during login:", error);
   
-    }
-  }
+  //   }
+  // }
 
   function handleChange(setState) {
     return (event) => {
