@@ -5,6 +5,7 @@ export const USERS_ID = import.meta.env.VITE_COLLECTION_USERS_ID;
 export const PRODUCTS_ID = import.meta.env.VITE_COLLECTION_PRODUCTS_ID;
 export const BUCKET_ID = import.meta.env.VITE_APPWRITE_BUCKET_ID;
 export const AUTH_ID = import.meta.env.VITE_APPWRITE_AUTH_ID;
+export const TARGET_ID=import.meta.env.VITE_APPWRITE_TARGET_ID;
 
 const client = new Client()
   .setEndpoint("https://cloud.appwrite.io/v1")
@@ -22,13 +23,4 @@ export const items = async () => {
     return [];
   }
 };
-export const getAdmin = async () => {
-  try {
-    const admin = await account.getPrefs(AUTH_ID);
-    console.log("Пользователь:", admin);
-    return admin;
-  } catch (error) {
-    console.error("Ошибка получения админа", error);
-    return null;
-  }
-};
+

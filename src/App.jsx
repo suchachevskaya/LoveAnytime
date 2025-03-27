@@ -9,7 +9,7 @@ import AddProducts from "./components/AddProducts";
 import InvitationSection from "./components/InvitationSection";
 import ContactForm from "./components/ContactForm";
 import OnlineStoreSection from "./components/onlineStoreSection";
-import Login from "./components/Login"
+import Login from "./components/Login";
 import { useState } from "react";
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-      <Header active={tab} onChange={(current)=>setTab(current)}/>
+      <Header active={tab} onChange={(current) => setTab(current)} />
       <main>
         {tab === "main" && (
           <>
@@ -26,10 +26,10 @@ function App() {
             <SectionProduct />
             <InvitationSection />
             <ContactForm />
-            
           </>
         )}
-        {tab === "auth" && (<><Login/> <AddProducts/></>)}
+       {tab === "login" && <Login onChange={(current) => setTab(current)} />}
+        {tab === "auth" && <AddProducts />}
       </main>
 
       <Bottom />
