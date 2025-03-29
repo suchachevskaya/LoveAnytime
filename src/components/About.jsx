@@ -16,7 +16,6 @@ export default function About() {
           <a className="button-active--color" href="#request">
           Подробнее
         </a>
-       
         </figcaption>
       </figure>
     </div>

@@ -1,24 +1,18 @@
 import { useState } from "react";
 import { ID } from "appwrite";
 import "../css/Form.css";
-
-import {
-  DATABASE_ID,
-  PRODUCTS_ID,
-  BUCKET_ID,
-  database,
-  storage,
-} from "../Appwrite";
-import { toast } from "react-toastify";
+import {useProductOperations} from"../hooks/useProductOperations";
 import Button from "./Button";
+
 export default function AddProducts() {
+  const {productsAdd}=useProductOperations();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [link, setLink] = useState("");
   const [file, setFile] = useState(null);
   const [hasError, setHasError] = useState(false);
-  const [products, setProducts] = useState([]);
+
 
   function handleChange(setState) {
     return (event) => {
@@ -31,46 +25,21 @@ export default function AddProducts() {
     setHasError(event.target.files.length === 0);
   }
 
-  async function imgAdd() {
-    try {
-      const response = await storage.createFile(
-        BUCKET_ID,
-        ID.unique(),
-        file[0]
-      );
 
-      console.log("Файл успешно загружен:", response);
-      toast("Файл успешно загружен");
-      return response.$id;
-    } catch (error) {
-      console.error("Ошибка загрузки файла:", error);
-      toast.error("Ошибка загрузки файла");
-      throw error;
-    }
+async function handleSubmite() {
+  try{
+    await productsAdd ({title, description, price, link, file})
+    setTitle("");
+    setDescription("");
+    setPrice("");
+    setLink("");
+    setFile(null);
+    setHasError(false)
+  } catch (error){
+    console.error("Ошибка при добавлении продукта:", error);
+    
   }
-  async function productsAdd() {
-    try {
-      const fileId = await imgAdd();
-      const productsCard = {
-        title,
-        description,
-        price: parseInt(price, 10),
-        link,
-        fileId,
-      };
-      const response = await database.createDocument(
-        DATABASE_ID,
-        PRODUCTS_ID,
-        ID.unique(),
-        productsCard
-      );
-      toast("Карточка создана");
-      setProducts((prevProducts) => [response, ...prevProducts]);
-    } catch (error) {
-      toast.error("Ошибка создания карточки");
-      console.error(error);
-    }
-  }
+}
 
   return (
     <div className="addProduct">
@@ -156,7 +125,7 @@ export default function AddProducts() {
           </div>
         </div>
         <div className="row">
-          <Button onClick={() => productsAdd()} type="submite">
+          <Button onClick={handleSubmite} type="submite">
             Сохранить
           </Button>
         </div>

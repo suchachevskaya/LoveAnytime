@@ -1,12 +1,23 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { account } from "../Appwrite";
-
 
 const AuthContect = createContext();
 
 export function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
+  useEffect(() => {
+    const checkSession = async () => {
+      try {
+        const session = await account.get();
+        console.log("Session exists:", session);
+        setIsAuthenticated(true);
+      } catch (error) {
+        console.log("No active session:", error);
+        setIsAuthenticated(false);
+      }
+    };
+    checkSession();
+  }, []);
   async function checkLogin(userName, password) {
     try {
       const response = await account.createEmailPasswordSession(
