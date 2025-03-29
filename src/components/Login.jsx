@@ -1,31 +1,29 @@
 import { useState } from "react";
 import Button from "../components/Button";
-import { account, AUTH_ID, TARGET_ID } from "../Appwrite";
+import {useAuth} from "../hooks/AuthContext.jsx";
 import "../css/Login.css";
 
-export default function Login({ active, onChange }) {
+export default function Login({ onChange }) {
   const [hasError, setHasError] = useState("");
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-
-  // async function checkLogin() {
-  //   try {
-  //     const response = await account.createEmailPasswordSession(
-  //       userName,
-  //       password
-  //     );
-  //     console.log("User session created:", response);
-  //   } catch (error) {
-  //     console.error("Error during login:", error);
-  
-  //   }
-  // }
+  const { checkLogin } = useAuth();
 
   function handleChange(setState) {
     return (event) => {
       setState(event.target.value);
       setHasError(event.target.value.trim().length === 0);
     };
+  }
+  async function handleLogin() {
+    try {
+      await checkLogin(userName, password);
+      console.log("Login successful");
+      onChange("auth")
+    } catch (error) {
+      console.error("Login failed", error);
+    }
+    
   }
   return (
     <div className="loginForm">
@@ -61,12 +59,8 @@ export default function Login({ active, onChange }) {
           />
         </div>
         <Button
-          className="submit"
-          isActive={active === "auth"}
-          onClick={() => {
-              checkLogin();
-              onChange("auth");
-          }}
+        className="submit"
+        onClick={handleLogin}
         >
           <span className="entypo-lock">
             <i className="fa fa-lock"></i>
@@ -74,6 +68,7 @@ export default function Login({ active, onChange }) {
         </Button>
       </form>
       <pre>Name:{userName}</pre>
+     
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { Client, Databases, Storage } from "appwrite";
+import {Account, Client, Databases, Storage } from "appwrite";
 export const PROJECT_ID = import.meta.env.VITE_APPWRITE_PROJECT_ID;
 export const DATABASE_ID = import.meta.env.VITE_APPWRITE_DATABASE_ID;
 export const USERS_ID = import.meta.env.VITE_COLLECTION_USERS_ID;
@@ -12,14 +12,13 @@ const client = new Client()
   .setProject(PROJECT_ID);
 export const database = new Databases(client);
 export const storage = new Storage(client);
-// export const account = new Account(client);
+export const account = new Account(client);
 
 export const items = async () => {
   try {
     const result = await database.listDocuments(DATABASE_ID, PRODUCTS_ID);
     return result.documents;
   } catch (error) {
-    // Логируем тип ошибки и доп. данные
     if (error.response) {
       console.error("Ответ сервера:", error.response);
       console.error("Статус:", error.response.status);
@@ -30,7 +29,6 @@ export const items = async () => {
 
     console.error("Ошибка получения данных:", error);
 
-    // Возвращаем пустой массив или альтернативное значение
     return [];
   }
 };
