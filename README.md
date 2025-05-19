@@ -1,12 +1,30 @@
-# React + Vite
+# 🕯️ LoveAnytime Candle Shop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **LoveAnytime Candle Shop** – your online destination for unique, handcrafted candles that brighten up every moment. Our shop combines modern design with an intuitive user experience to bring warmth and style right to your doorstep.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌟 Features
 
-## Expanding the ESLint configuration
+- **Elegant Design:** Enjoy a modern, responsive layout optimized for both desktop and mobile devices.
+- **Extensive Product Catalog:** Browse a diverse selection of uniquely scented and beautifully designed candles.
+- **Customer Reviews:** Read testimonials from satisfied customers to help you choose the perfect candle.
+- **Admin Panel:** Administrators can securely add new candle cards to the catalog via an intuitive management interface.
+- **Database Integration:** A connected database stores product details and user information, ensuring dynamic and organized content.
+- **Secure Admin Access:** The admin panel is accessible only through a protected login system using a username and password.
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+## 💻 Tech Stack
+
+- **React:** For building dynamic, component-based user interfaces.
+- **Vite:** A fast development tool that provides lightning-quick builds and Hot Module Replacement.
+- **HTML5 & CSS3:** For semantic markup and modern, responsive styling.
+- **JavaScript (ES6+):** Enabling interactive and efficient application logic.
+
+
+## 🚀 Getting Started
+
+Follow these instructions to run the project locally:
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/suchachevskaya/LoveAnytime.git
